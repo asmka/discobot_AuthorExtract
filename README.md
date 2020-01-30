@@ -1,4 +1,4 @@
-# discobot_UserExtract
+# discobot_AuthorExtract
 
 ## 概要
 指定ユーザーの発言を抽出し，指定チャンネルに送信するdiscord用Botです．
