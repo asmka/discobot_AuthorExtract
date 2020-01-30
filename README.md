@@ -16,5 +16,5 @@ $ pip install discord
 
 ## 実行
 ```
-$ python src/run_bot.py <token> <author id> <channel id> 
+$ python src/run_bot.py <Botトークン> <抽出ユーザーID> <送信先チャンネルID> 
 ```
