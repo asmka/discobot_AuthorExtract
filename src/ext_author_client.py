@@ -19,7 +19,9 @@ class ExtAuthorClient(discord.Client):
     # on_ready is not necessarily called just once.
     # So, do process only at the first calling.
     async def on_ready(self):
-        #print('on ready', flush=True)
+        # DEBUG
+        print('on ready', flush=True)
+
         if not self._is_called_on_ready:
             self._channel = self.get_channel(self._channel_id)
             if not self._channel:
@@ -29,6 +31,9 @@ class ExtAuthorClient(discord.Client):
 
 
     async def on_message(self, msg):
+        # DEBUG
+        print('on message', flush=True)
+
         if msg.author.id == self._author_id:
             # Generate quoted message
 
@@ -41,9 +46,15 @@ class ExtAuthorClient(discord.Client):
             # > bbb
             # https://...
 
+            # DEBUG
+            print('generating quoted message...', flush=True)
+
             msg_url = f'https://discordapp.com/channels/{msg.guild.id}/{msg.channel.id}/{msg.id}'
 
             quoted_msg = '> ' + msg.content.replace('\n', '\n> ') + '\n'
             quoted_msg += msg_url
+
+            # DEBUG
+            print('generated quoted message', flush=True)
 
             await self._channel.send(quoted_msg)
