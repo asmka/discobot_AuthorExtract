@@ -29,6 +29,10 @@ class ExtAuthorClient(discord.Client):
 
 
     async def on_message(self, msg):
+        # In case called before on ready event
+        if not self._is_called_on_ready:
+            return
+
         if msg.author.id == self._author_id:
             # Generate quoted message
 
